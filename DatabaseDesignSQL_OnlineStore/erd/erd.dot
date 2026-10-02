@@ -1,0 +1,25 @@
+
+digraph ERD {
+  graph [rankdir=LR, bgcolor="white", nodesep=0.5, ranksep=0.8];
+  node [shape=record, fontname="Arial", fontsize=10];
+  edge [fontname="Arial", fontsize=9];
+
+  categories [label="{CATEGORIES|PK category_id\lUK category_name\ldescription\l}"];
+  products [label="{PRODUCTS|PK product_id\lFK category_id\lUK sku\lproduct_name\lprice\lstock_quantity\lstatus\l}"];
+  customers [label="{CUSTOMERS|PK customer_id\lUK email\lUK phone\lfull_name\l}"];
+  addresses [label="{ADDRESSES|PK address_id\lFK customer_id\laddress_line\lcity\ldistrict\lis_default\l}"];
+  orders [label="{ORDERS|PK order_id\lFK customer_id\lFK shipping_address_id\lorder_date\lstatus\ltotal_amount\l}"];
+  items [label="{ORDER_ITEMS|PK order_item_id\lFK order_id\lFK product_id\lquantity\lunit_price\l}"];
+  payments [label="{PAYMENTS|PK payment_id\lFK order_id\lpayment_method\lamount\lpayment_status\lUK transaction_code\l}"];
+  reviews [label="{REVIEWS|PK review_id\lFK customer_id\lFK product_id\lrating\lcomment\l}"];
+
+  categories -> products [label="1 : N"];
+  customers -> addresses [label="1 : N"];
+  customers -> orders [label="1 : N"];
+  addresses -> orders [label="1 : N"];
+  orders -> items [label="1 : N"];
+  products -> items [label="1 : N"];
+  orders -> payments [label="1 : N"];
+  customers -> reviews [label="1 : N"];
+  products -> reviews [label="1 : N"];
+}

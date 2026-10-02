@@ -1,0 +1,8 @@
+-- Chạy từng file theo thứ tự trong MySQL Workbench:
+-- 01_schema.sql
+-- 02_seed_data.sql
+-- 03_queries.sql
+-- 04_advanced.sql
+--
+-- File này chỉ là checklist vì MySQL Workbench không đảm bảo SOURCE
+-- hoạt động giống nhau trong mọi chế độ GUI.
