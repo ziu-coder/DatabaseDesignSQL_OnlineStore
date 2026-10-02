@@ -13,9 +13,7 @@ SET @new_order_id = LAST_INSERT_ID();
 
 -- Trigger kiểm tra tồn kho, trừ kho và cập nhật total_amount.
 INSERT INTO order_items(order_id, product_id, quantity, unit_price)
-SELECT @new_order_id, product_id, 1, price
-FROM products
-WHERE product_id = 12;
+VALUES (@new_order_id, 12, 1, 1190000.00);
 
 COMMIT;
 
